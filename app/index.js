@@ -1,12 +1,15 @@
-import { Client } from "pg";
+import { config } from "./dbconfig.js";
+import express from "express";
+import cors from "cors";
+import pkg from "pg";
 
-const client = new Client({
-    user: "",
-    host: "", 
-    database: "",
-    password: "", 
-    port: 5430
-})
+const { Client } = pkg 
 
-client.connect()
+let user = "Lucas"
+let passw = "123"
 
+const client = await new Client(config)
+await client.connect()
+let result = await client.query("SELECT * FROM users")
+console.log(result)
+await client.end()

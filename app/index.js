@@ -1,15 +1,18 @@
-import { config } from "./dbconfig.js";
-import express from "express";
-import cors from "cors";
-import pkg from "pg";
+import dotenv from 'dotenv/config'
+import pkg from 'pg';
+const { Client } = pkg;
 
-const { Client } = pkg 
+const client = new Client({
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST, 
+    database: process.env.DB_DATABASE,
+    password: process.env.DB_PASSWORD, 
+    port: 5432,
+    ssl : true, 
+});
 
-let user = "Lucas"
-let passw = "123"
+client.connect();
 
-const client = await new Client(config)
-await client.connect()
-let result = await client.query("SELECT * FROM users")
-console.log(result)
-await client.end()
+const res = await client.query("SELECT * FROM users");
+client.end()
+console.log(res.rows[0]); 

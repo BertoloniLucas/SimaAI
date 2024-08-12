@@ -1,4 +1,4 @@
-import { client } from "./dbconfig.js";
+import { client } from "./config/dbconfig.js";
 
 client.connect()
 const res = await client.query("SELECT * FROM patients")

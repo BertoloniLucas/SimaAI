@@ -11,10 +11,17 @@ app.listen(port, ()=>{
     console.log(`Sima listening on port ${port}`)
 })
 
-app.get("/users", async (_, res) =>{
+app.get("/", async (_, res) =>{
     await client.connect()
-    const [rows] = await client.query("SELECT * FROM public.patients")
-    res.send(rows)
+    const {rows} = await client.query("SELECT * FROM public.patients")
     await client.end()
+    res.send(rows)
 })
 
+app.post("/add", async (req, res) =>{
+    await client.connect()
+    const {name, surname, telephone, email} = req.body
+    const {rows} = await client.query("INSERT INTO public.patients (name, surname, telephone, email) VALUES ($1, $2, $3, $4)", [name, surname, telephone, email])
+    await client.end()
+    res.send(rows)
+})

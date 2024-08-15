@@ -14,3 +14,19 @@ Content-Type: application/json
 
 ### 
 
+DELETE http://localhost:3002/deletions/9
+
+###
+
+PUT http://localhost:3002/updates/7
+Content-Type: application/json
+
+{
+    "name": "Ignacio",
+    "surname": "Vigilante",
+    "telephone": "1100298384",
+    "email": "vigilante@gmail.com"
+}
+
+###
+

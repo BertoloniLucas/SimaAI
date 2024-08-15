@@ -11,7 +11,10 @@ app.listen(port, ()=>{
     console.log(`Sima listening on port ${port}`)
 })
 
-app.get("https://proyecto2024-nine.vercel.app", (_, res) =>{
-    res.send("Hola grupo! Primera ruta!")
+app.get("/users", async (_, res) =>{
+    await client.connect()
+    const [rows] = await client.query("SELECT * FROM public.patients")
+    res.send(rows)
+    await client.end()
 })
 

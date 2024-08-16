@@ -1,11 +1,16 @@
-import Connection from "mysql/lib/Connection.js";
+// Modulos necesarios
+//import Connection from "mysql/lib/Connection.js"; ?? 
 import { client } from "./config/dbconfig.js";
 import express, { response } from "express";
+import cors from 'cors'
 
 
+// Middlewears necesarios
 const app = express()
+app.use(cors())
 app.use(express.json())
 const port = 3002
+
 
 const connection = async () =>{
     await client.connect()

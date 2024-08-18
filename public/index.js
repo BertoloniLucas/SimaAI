@@ -3,7 +3,7 @@ const input_name = document.getElementById("name")
 const input_surname = document.getElementById("surname")
 const btnSelect = document.getElementById("btnSelect")
 const user_list = document.getElementById("user_list")
-const btn_testing = document.getElementById("btnTesting")
+const btn_login = document.getElementById("btnLogin")
 
 // -----------------Functions----------------------//
 const user_list_add = (user) => {
@@ -23,9 +23,10 @@ const user_list_add = (user) => {
 
 
 btnSelect.addEventListener("click", async () =>{
-    fetch("http://localhost:3002/")
+    fetch("http://localhost:3002/users")
     .then(res => res.json())
     .then(data =>{
+        user_list.innerHTML = ""
         data.forEach((user) =>{
             const li = user_list_add(user)
             user_list.innerHTML += li
@@ -33,7 +34,7 @@ btnSelect.addEventListener("click", async () =>{
     })
 })
 
-btnAdd.addEventListener("click", async (event, req, res)=>{
+btnAdd.addEventListener("click", async (event)=>{
     event.preventDefault()
     const user_values = {
         user_name: input_name.value,
@@ -53,5 +54,24 @@ btnAdd.addEventListener("click", async (event, req, res)=>{
     })
     .catch((error) =>{
         console.log(error)
+    })
+})
+
+btn_login.addEventListener("click", async () =>{
+    const user_credentials = {
+        user_name: input_name.value,
+        user_surname: input_surname.value
+    }
+
+    await fetch("http://localhost:3002/login", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user_credentials)
+    })
+    .then(res => res.json())
+    .then(data =>{
+        console.log(data)
     })
 })

@@ -66,3 +66,13 @@ app.put("/updates/:id", async (req, res)=>{
     }
 })
 
+app.post("/add2", async (req, res) =>{
+    try{
+        const {user_name, user_surname} = req.body
+        const {rows} = await client.query("INSERT INTO public.users (name, surname) VALUES ($1, $2)", [user_name, user_surname])
+        res.status(200).send('Agregado correctamente!')
+    }
+    catch(error){
+        res.status(500).send("Server Error")
+    }
+})

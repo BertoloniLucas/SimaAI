@@ -4,6 +4,12 @@ const input_surname = document.getElementById("surname")
 const btnSelect = document.getElementById("btnSelect")
 const user_list = document.getElementById("user_list")
 const btn_login = document.getElementById("btnLogin")
+const btnResgisDoc = document.getElementById("registerDoc")
+const docName = document.getElementById("docName")
+const docSurname = document.getElementById("docSurname")
+const docTel = document.getElementById("docTel")
+const docEmail = document.getElementById("docEmail")
+
 
 // -----------------Functions----------------------//
 const user_list_add = (user) => {
@@ -73,5 +79,30 @@ btn_login.addEventListener("click", async () =>{
     .then(res => res.json())
     .then(data =>{
         console.log(data)
+    })
+})
+
+btnResgisDoc.addEventListener("click", async (event) => {
+    event.preventDefault()
+    const dataDoc = {
+        docName: docName.value,
+        docSurname: docSurname.value,
+        docTel: docTel.value,
+        docEmail: docEmail.value
+    }
+
+    fetch("http://localhost:3002/registerDoc", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dataDoc)
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+    })
+    .catch(err => {
+        console.log(err.json())
     })
 })

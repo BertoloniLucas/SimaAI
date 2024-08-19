@@ -1,6 +1,6 @@
 // Modulos necesarios
 import { client } from "./config/dbconfig.js";
-import express, { response } from "express";
+import express from "express";
 import cors from 'cors'
 
 
@@ -101,6 +101,22 @@ app.post("/login", async (req, res)=> {
     }
     catch(error){
         res.status(500)
+    }
+})
+
+app.post("/registerDoc", async (req, res) => {
+    try{
+        const {docName, docSurname, docTel, docEmail} = req.body
+        const {rows} = await client.query("INSERT INTO public.doctors (name, surname, telephone, email) VALUES ($1, $2, $3, $4)", [docName, docSurname, docTel, docEmail])
+        if (res.status == 200){
+            res.send("Agregado correctamente!")
+        }
+        else{
+            res.status(404).json({message: "Error al crear doctor, intente nuevamente!"})
+        }
+    }
+    catch(error){
+        res.status(500).send("Server Error: ", error)
     }
 })
 

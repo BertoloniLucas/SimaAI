@@ -2,6 +2,7 @@
 import { client } from "./config/dbconfig.js";
 import express from "express";
 import cors from 'cors'
+import { PrismaClient } from "@prisma/client";
 
 
 // Middlewears necesarios
@@ -9,6 +10,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 const port = 3002
+const prisma = new PrismaClient()
 
 
 const connection = async () =>{

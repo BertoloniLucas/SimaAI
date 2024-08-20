@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/BertoloniLucas/Proyecto2024#readme",
   "dependencies": {
+    "@prisma/client": "^5.18.0",
     "@vercel/postgres": "^0.9.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",

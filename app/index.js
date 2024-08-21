@@ -10,13 +10,17 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 const prisma = new PrismaClient()
+const port = 3002
 
 //------------------------------//
 
 await prisma.$connect() // Conexión Inicial
 
-
 //--------------GET Routes-------------------//
+
+app.listen(port, () =>{
+    console.log("Port running on port", port)
+})
 
 
 app.get("/", async (_, res) => {
@@ -99,3 +103,4 @@ app.delete("/deleteUser/:id", async (req, res) => {
 
 
 //----------End DELETE Routes-----------------//
+

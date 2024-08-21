@@ -1,7 +1,8 @@
 // Modulos necesarios
 import { client } from "./config/dbconfig.js"; // Checkear a ver si es necesario 
 import express from "express";
-import cors from 'cors'
+import path from 'path';
+import cors from 'cors';
 import { PrismaClient } from "@prisma/client";
 
 
@@ -9,6 +10,7 @@ import { PrismaClient } from "@prisma/client";
 const app = express()
 app.use(cors())
 app.use(express.json())
+app.use (express.static(path.join(process.cwd(), 'public')))
 const prisma = new PrismaClient()
 const port = 3002
 
@@ -22,6 +24,9 @@ app.listen(port, () =>{
     console.log("Port running on port", port)
 })
 
+app.get('/', (_, res) => {
+    res.sendFile(path.join(process.cwd(), '..', 'public', 'index.html'));
+});
 
 app.get("/users", async (_, res) => {
     const usersAtDb = await prisma.users.findMany()

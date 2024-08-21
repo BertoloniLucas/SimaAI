@@ -35,3 +35,27 @@ Content-Type: application/json
 
 ###
 
+POST http://localhost:3002/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "userName": "Frida",
+    "userSurname": "Khalo"
+}
+
+###
+
+PUT http://localhost:3002/editUser/20
+Content-Type: application/json
+
+{
+    "userName": "Chona", 
+    "userSurname": "Pardo"
+}
+
+###
+
+DELETE http://localhost:3002/deleteUser/15
+
+###
+

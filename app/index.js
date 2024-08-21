@@ -23,7 +23,7 @@ app.listen(port, () =>{
 })
 
 
-app.get("/", async (_, res) => {
+app.get("/users", async (_, res) => {
     const usersAtDb = await prisma.users.findMany()
     res.send(usersAtDb)
 })

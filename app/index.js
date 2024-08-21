@@ -10,16 +10,10 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 const prisma = new PrismaClient()
-const port = 3002
 
 //------------------------------//
 
 await prisma.$connect() // Conexión Inicial
-
-app.listen(port, () => {
-    console.log(`Sima listening on port`, port)
-})
-
 
 
 //--------------GET Routes-------------------//

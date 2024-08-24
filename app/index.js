@@ -2,11 +2,9 @@
 import { client } from "./config/dbconfig.js"; // Checkear a ver si es necesario 
 import express from "express";
 import cors from 'cors';
+import bcrypt from 'bcrypt'
 import { PrismaClient } from "@prisma/client";
-import crypto from 'crypto'
 
-const secret = crypto.randomBytes(32).toString('hex');
-console.log(secret);
 
 // Middlewears necesarios
 const app = express()
@@ -60,16 +58,27 @@ app.get("/name/:name", async (req, res) => {
 
 app.post("/register", async (req, res) => {
     const {userName, userSurname} = req.body
+    const userSurnameHashed = await bcrypt.hash(userSurname, 10)
     const addUser = await prisma.users.create({
         data: {
             name: userName,
-            surname: userSurname
+            surname: userSurnameHashed
         }
     })
     
     res.status(201).send("Creado OK!")
 })
 
+app.post("/login", async (req, res) => {
+    const {id} = req.body
+    const userExists = await prisma.users.findUnique({
+        where: {
+            id: parseInt(id),
+        }
+    })
+
+    userExists ? res.send(userExists) : res.status(404).send("Not found")
+})
 
 //-----------End POST Routes----------------//
 

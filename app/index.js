@@ -4,6 +4,8 @@ import express from "express";
 import cors from 'cors';
 import bcrypt from 'bcrypt'
 import { PrismaClient } from "@prisma/client";
+import jwt from 'jsonwebtoken'
+import { check } from "prisma";
 
 
 // Middlewears necesarios
@@ -12,6 +14,7 @@ app.use(cors())
 app.use(express.json())
 const prisma = new PrismaClient()
 const port = 3002
+const secret = process.env.JWT_SECRET
 
 //------------------------------//
 
@@ -116,3 +119,19 @@ app.delete("/deleteUser/:id", async (req, res) => {
 
 //----------End DELETE Routes-----------------//
 
+//------------ Routes with JWT---------//
+
+app.post("/loginToken", async (req, res) => {
+    const {name, surname} = req.body 
+    const checkUser = await prisma.users.findFirst({
+        where: {
+            AND: [{
+                name: name, 
+                surname: surname
+            }
+            ]
+        }
+    })
+    checkUser? 
+    res.sendStatus(201).send(checkUser.id) : res.status(404).send("User not found")
+})

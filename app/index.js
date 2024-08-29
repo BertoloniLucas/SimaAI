@@ -122,16 +122,19 @@ app.delete("/deleteUser/:id", async (req, res) => {
 //------------ Routes with JWT---------//
 
 app.post("/loginToken", async (req, res) => {
-    const {name, surname} = req.body 
-    const checkUser = await prisma.users.findFirst({
+    const {name} = req.body
+    const userSearch = await prisma.users.findFirst({
         where: {
-            AND: [{
-                name: name, 
-                surname: surname
-            }
-            ]
+            name: name
         }
     })
-    checkUser? 
-    res.sendStatus(201).send(checkUser.id) : res.status(404).send("User not found")
+
+    if (!userSearch){
+        return res.status(404).send("Not found")
+    }
+    const id = userSearch.id
+    console.log(id)
+    const token = await jwt.sign({id}, secret)
+    
 })
+

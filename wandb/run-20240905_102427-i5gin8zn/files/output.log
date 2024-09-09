@@ -1,0 +1,6 @@
+wandb: Network error (ConnectionError), entering retry loop.
+[34m[1mwandb[39m[22m: Network error resolved after 0:01:23.029386, resuming normal operation.
+wandb: Network error (ConnectionError), entering retry loop.
+[34m[1mwandb[39m[22m: Network error resolved after 0:00:30.214672, resuming normal operation.
+wandb: Network error (ConnectionError), entering retry loop.
+[34m[1mwandb[39m[22m: Network error resolved after 0:02:04.057010, resuming normal operation.

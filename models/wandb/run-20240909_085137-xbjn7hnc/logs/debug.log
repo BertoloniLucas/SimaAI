@@ -1,0 +1,164 @@
+2024-09-09 08:51:37,985 INFO    MainThread:10169 [wandb_setup.py:_flush():76] Current SDK version is 0.17.7
+2024-09-09 08:51:37,987 INFO    MainThread:10169 [wandb_setup.py:_flush():76] Configure stats pid to 10169
+2024-09-09 08:51:37,987 INFO    MainThread:10169 [wandb_setup.py:_flush():76] Loading settings from /Users/gabrielslotnisky/.config/wandb/settings
+2024-09-09 08:51:37,987 INFO    MainThread:10169 [wandb_setup.py:_flush():76] Loading settings from /Users/gabrielslotnisky/Documents/GitHub/Proyecto2024/models/wandb/settings
+2024-09-09 08:51:37,987 INFO    MainThread:10169 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-09-09 08:51:37,987 INFO    MainThread:10169 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-09-09 08:51:37,988 INFO    MainThread:10169 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-09-09 08:51:37,988 INFO    MainThread:10169 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-09-09 08:51:37,988 WARNING MainThread:10169 [wandb_setup.py:_flush():76] interrupted
+Traceback (most recent call last):
+  File "/Users/gabrielslotnisky/Library/Python/3.12/lib/python/site-packages/IPython/core/interactiveshell.py", line 3577, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "/var/folders/h1/j3hlf_9d2wv_fdvmlsz9t0_m0000gn/T/ipykernel_10169/147429373.py", line 14, in <module>
+    wandb.init(project="your_project_name", entity="your_entity")
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/wandb_init.py", line 1224, in init
+    wi.setup(kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/wandb_init.py", line 295, in setup
+    wandb_login._login(
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/wandb_login.py", line 337, in _login
+    logged_in = wlogin.login()
+                ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/wandb_login.py", line 183, in login
+    self._print_logged_in_message()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/wandb_login.py", line 189, in _print_logged_in_message
+    username = self._wl._get_username()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/wandb_setup.py", line 194, in _get_username
+    self._load_viewer()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/wandb_setup.py", line 216, in _load_viewer
+    s.query_with_timeout()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/lib/server.py", line 35, in query_with_timeout
+    viewer_tuple, viewer_thread = async_viewer()
+                                  ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/util.py", line 1191, in wrapper
+    result = q.get(True, timeout)
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/queue.py", line 180, in get
+    self.not_empty.wait(remaining)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/threading.py", line 359, in wait
+    gotit = waiter.acquire(True, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+2024-09-09 08:51:37,991 INFO    MainThread:10169 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-09-09 08:51:37,992 INFO    MainThread:10169 [wandb_init.py:_log_setup():524] Logging user logs to /Users/gabrielslotnisky/Documents/GitHub/Proyecto2024/models/wandb/run-20240909_085137-xbjn7hnc/logs/debug.log
+2024-09-09 08:51:37,992 INFO    MainThread:10169 [wandb_init.py:_log_setup():525] Logging internal logs to /Users/gabrielslotnisky/Documents/GitHub/Proyecto2024/models/wandb/run-20240909_085137-xbjn7hnc/logs/debug-internal.log
+2024-09-09 08:51:37,992 INFO    MainThread:10169 [wandb_init.py:init():607] calling init triggers
+2024-09-09 08:51:37,993 INFO    MainThread:10169 [wandb_init.py:init():614] wandb.init called with sweep_config: {}
+config: {}
+2024-09-09 08:51:37,993 INFO    MainThread:10169 [wandb_init.py:init():657] starting backend
+2024-09-09 08:51:37,993 INFO    MainThread:10169 [wandb_init.py:init():661] setting up manager
+2024-09-09 08:51:38,006 INFO    MainThread:10169 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2024-09-09 08:51:38,007 INFO    MainThread:10169 [wandb_init.py:init():669] backend started and connected
+2024-09-09 08:51:38,035 INFO    MainThread:10169 [wandb_run.py:_label_probe_notebook():1338] probe notebook
+2024-09-09 08:51:38,035 INFO    MainThread:10169 [wandb_run.py:_label_probe_notebook():1348] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-09-09 08:51:38,035 INFO    MainThread:10169 [wandb_init.py:init():764] updated telemetry
+2024-09-09 08:51:38,070 INFO    MainThread:10169 [wandb_init.py:init():797] communicating run to backend with 90.0 second timeout
+2024-09-09 08:51:46,472 WARNING MainThread:10169 [wandb_init.py:init():1229] interrupted
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/wandb_init.py", line 1225, in init
+    return wi.init()
+           ^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/wandb_init.py", line 800, in init
+    result = run_init_handle.wait(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/lib/mailbox.py", line 283, in wait
+    found, abandoned = self._slot._get_and_clear(timeout=wait_timeout)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/lib/mailbox.py", line 130, in _get_and_clear
+    if self._wait(timeout=timeout):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/lib/mailbox.py", line 126, in _wait
+    return self._event.wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/threading.py", line 655, in wait
+    signaled = self._cond.wait(timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/threading.py", line 359, in wait
+    gotit = waiter.acquire(True, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+2024-09-09 08:58:14,803 INFO    MainThread:10169 [wandb_settings.py:_apply_login():1936] Applying login settings: {}
+2024-09-09 08:58:14,832 INFO    MainThread:10169 [wandb_settings.py:_apply_login():1936] Applying login settings: {}
+2024-09-09 08:58:14,850 INFO    MainThread:10169 [wandb_setup.py:_flush():76] Current SDK version is 0.17.7
+2024-09-09 08:58:14,850 INFO    MainThread:10169 [wandb_setup.py:_flush():76] Configure stats pid to 10169
+2024-09-09 08:58:14,851 INFO    MainThread:10169 [wandb_setup.py:_flush():76] Loading settings from /Users/gabrielslotnisky/.config/wandb/settings
+2024-09-09 08:58:14,851 INFO    MainThread:10169 [wandb_setup.py:_flush():76] Loading settings from /Users/gabrielslotnisky/Documents/GitHub/Proyecto2024/models/wandb/settings
+2024-09-09 08:58:14,852 INFO    MainThread:10169 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-09-09 08:58:14,852 INFO    MainThread:10169 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-09-09 08:58:14,853 INFO    MainThread:10169 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-09-09 08:58:14,853 INFO    MainThread:10169 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-09-09 08:58:14,853 WARNING MainThread:10169 [wandb_setup.py:_flush():76] interrupted
+Traceback (most recent call last):
+  File "/Users/gabrielslotnisky/Library/Python/3.12/lib/python/site-packages/IPython/core/interactiveshell.py", line 3577, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "/var/folders/h1/j3hlf_9d2wv_fdvmlsz9t0_m0000gn/T/ipykernel_10169/147429373.py", line 14, in <module>
+    wandb.init(project="your_project_name", entity="your_entity")
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/wandb_init.py", line 1224, in init
+    wi.setup(kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/wandb_init.py", line 295, in setup
+    wandb_login._login(
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/wandb_login.py", line 337, in _login
+    logged_in = wlogin.login()
+                ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/wandb_login.py", line 183, in login
+    self._print_logged_in_message()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/wandb_login.py", line 189, in _print_logged_in_message
+    username = self._wl._get_username()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/wandb_setup.py", line 194, in _get_username
+    self._load_viewer()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/wandb_setup.py", line 216, in _load_viewer
+    s.query_with_timeout()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/lib/server.py", line 35, in query_with_timeout
+    viewer_tuple, viewer_thread = async_viewer()
+                                  ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/util.py", line 1191, in wrapper
+    result = q.get(True, timeout)
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/queue.py", line 180, in get
+    self.not_empty.wait(remaining)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/threading.py", line 359, in wait
+    gotit = waiter.acquire(True, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+2024-09-09 08:58:14,854 INFO    MainThread:10169 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-09-09 08:58:14,855 INFO    MainThread:10169 [wandb_init.py:_log_setup():524] Logging user logs to /Users/gabrielslotnisky/Documents/GitHub/Proyecto2024/models/wandb/run-20240909_085814-2zsk0r5u/logs/debug.log
+2024-09-09 08:58:14,855 INFO    MainThread:10169 [wandb_init.py:_log_setup():525] Logging internal logs to /Users/gabrielslotnisky/Documents/GitHub/Proyecto2024/models/wandb/run-20240909_085814-2zsk0r5u/logs/debug-internal.log
+2024-09-09 08:58:14,855 INFO    MainThread:10169 [wandb_init.py:init():607] calling init triggers
+2024-09-09 08:58:14,856 INFO    MainThread:10169 [wandb_init.py:init():614] wandb.init called with sweep_config: {}
+config: {}
+2024-09-09 08:58:14,856 INFO    MainThread:10169 [wandb_init.py:init():657] starting backend
+2024-09-09 08:58:14,856 INFO    MainThread:10169 [wandb_init.py:init():661] setting up manager
+2024-09-09 08:58:14,867 INFO    MainThread:10169 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2024-09-09 08:58:14,869 INFO    MainThread:10169 [wandb_init.py:init():669] backend started and connected
+2024-09-09 08:58:14,880 INFO    MainThread:10169 [wandb_run.py:_label_probe_notebook():1338] probe notebook
+2024-09-09 08:58:14,881 INFO    MainThread:10169 [wandb_run.py:_label_probe_notebook():1348] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-09-09 08:58:14,881 INFO    MainThread:10169 [wandb_init.py:init():764] updated telemetry
+2024-09-09 08:58:14,918 INFO    MainThread:10169 [wandb_init.py:init():797] communicating run to backend with 90.0 second timeout
+2024-09-09 08:58:16,516 WARNING MsgRouterThr:10169 [router.py:message_loop():77] message_loop has been closed
+2024-09-09 08:58:16,869 WARNING MsgRouterThr:10169 [router.py:message_loop():77] message_loop has been closed
+2024-09-09 08:58:21,689 WARNING MainThread:10169 [wandb_init.py:init():1229] interrupted
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/wandb_init.py", line 1225, in init
+    return wi.init()
+           ^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/wandb_init.py", line 800, in init
+    result = run_init_handle.wait(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/lib/mailbox.py", line 283, in wait
+    found, abandoned = self._slot._get_and_clear(timeout=wait_timeout)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/lib/mailbox.py", line 130, in _get_and_clear
+    if self._wait(timeout=timeout):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/wandb/sdk/lib/mailbox.py", line 126, in _wait
+    return self._event.wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/threading.py", line 655, in wait
+    signaled = self._cond.wait(timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/threading.py", line 359, in wait
+    gotit = waiter.acquire(True, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

@@ -1,0 +1,44 @@
+{
+    "os": "macOS-13.6.7-x86_64-i386-64bit",
+    "python": "3.12.4",
+    "heartbeatAt": "2024-09-05T14:03:10.012506",
+    "startedAt": "2024-09-05T14:03:02.736424",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "<python with no main file>",
+    "codePathLocal": null,
+    "git": {
+        "remote": "https://github.com/BertoloniLucas/Proyecto2024.git",
+        "commit": "31904456caba09be43741ad235b0fcb7c5cc5f3a"
+    },
+    "email": "144163994+gabislot07@users.noreply.github.com",
+    "root": "/Users/gabrielslotnisky/Documents/GitHub/Proyecto2024",
+    "host": "MacBook-Air-de-Gabriel.local",
+    "username": "gabrielslotnisky",
+    "executable": "/usr/local/bin/python3",
+    "cpu_count": 2,
+    "cpu_count_logical": 4,
+    "cpu_freq": {
+        "current": 1100,
+        "min": 1100,
+        "max": 1100
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1100,
+            "min": 1100,
+            "max": 1100
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 233.46913528442383,
+            "used": 9.36099624633789
+        }
+    },
+    "memory": {
+        "total": 8.0
+    }
+}

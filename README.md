@@ -1,2 +1,2 @@
-# Proyecto2024
-Repositorio para el proyecto de 4° - Año 2024
+# SimaAI
+Repositorio para la AI de Sima y entrenamiento de los modelos

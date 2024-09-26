@@ -9,10 +9,10 @@ app = FastAPI()
 
 # Carga el modelo pre-entrenado desde el archivo .pkl
 try:
-    with open("models/models/modelo_svm_optimizado.pkl", "rb") as f:
+    with open("models/selección_Modelo_Mejor_Predicción/opt_modelo.pkl", "rb") as f:
         modelo = pickle.load(f)
 except FileNotFoundError:
-    print("El archivo del modelo no se encontró. Asegúrate de que 'models/modelo_svm_optimizado.pkl' existe.")
+    print("El archivo del modelo no se encontró. Asegúrate de que 'opt_modelo.pkl' existe.")
     modelo = None
 
 # Define el esquema de datos de entrada usando Pydantic

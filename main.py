@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import pickle  # Para cargar el modelo serializado
 import numpy as np
@@ -6,6 +7,14 @@ import os
 
 # Inicializa la aplicación de FastAPI
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://sima-web-six.vercel.app", "https://sima-server.vercel.app"],  # Permitir solo tu dominio
+    allow_credentials=True,
+    allow_methods=["*"],  # Permitir todos los métodos HTTP
+    allow_headers=["*"],  # Permitir todos los encabezados
+)
 
 # Carga el modelo pre-entrenado desde el archivo .pkl
 try:

@@ -10,10 +10,10 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://sima-web-six.vercel.app", "https://sima-server.vercel.app"],  # Permitir solo tu dominio
+    allow_origins=["*"],  # Permitir solo tu dominio
     allow_credentials=True,
-    allow_methods=["*"],  # Permitir todos los métodos HTTP
-    allow_headers=["*"],  # Permitir todos los encabezados
+    allow_methods=["*"],  
+    allow_headers=["*"],  
 )
 
 # Carga el modelo pre-entrenado desde el archivo .pkl

@@ -10,10 +10,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Permitir solo tu dominio
-    allow_credentials=True,
-    allow_methods=["*"],  
-    allow_headers=["*"],  
+    allow_origins=["*"],
 )
 
 # Carga el modelo pre-entrenado desde el archivo .pkl

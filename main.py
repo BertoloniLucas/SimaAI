@@ -10,7 +10,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://sima-server.vercel.app"],  # Permitir solo tu dominio
+    allow_origins=["*"],  # Permitir solo tu dominio
     allow_credentials=True,
     allow_methods=["*"],  
     allow_headers=["*"],  

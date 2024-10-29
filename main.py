@@ -11,7 +11,7 @@ app = FastAPI()
 
 # Carga el modelo pre-entrenado desde el archivo .pkl
 try:
-    with open("models/selección_Modelo_Mejor_Predicción/opt_modelo.pkl", "rb") as f:
+    with open("./models/selección_Modelo_Mejor_Predicción/opt_modelo.pkl", "rb") as f:
         modelo = pickle.load(f)
 except FileNotFoundError:
     raise HTTPException(status_code=404, detail="El archivo del modelo no se encontró. Asegúrate de que 'opt_modelo.pkl' existe.")

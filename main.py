@@ -43,7 +43,7 @@ def init_route():
     return "Render API working correctly"
 
 
-@app.post("/predecir/")
+@app.post("/predecir")
 def predecir(datos: DatosEntrada):
     # Verificar si el modelo fue cargado correctamente
     if modelo is None:

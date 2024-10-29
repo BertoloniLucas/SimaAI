@@ -8,10 +8,6 @@ import os
 # Inicializa la aplicación de FastAPI
 app = FastAPI()
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-)
 
 # Carga el modelo pre-entrenado desde el archivo .pkl
 try:

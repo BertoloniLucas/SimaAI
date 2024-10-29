@@ -9,6 +9,14 @@ import os
 app = FastAPI()
 
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://sima-server.vercel.app", "https://sima-web-six.vercel.app"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # Carga el modelo pre-entrenado desde el archivo .pkl
 try:
     with open("Selección_Modelo_Mejor_Predicción/opt_modelo.pkl", "rb") as f:

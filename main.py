@@ -40,8 +40,8 @@ class DatosEntrada(BaseModel):
 @app.post("/predecir/")
 def predecir(datos: DatosEntrada):
     # Verificar si el modelo fue cargado correctamente
-    if modelo is None:
-        raise HTTPException(status_code=500, detail="El modelo no está disponible.")
+    #if modelo is None:
+        #raise HTTPException(status_code=500, detail="El modelo no está disponible.")
 
     # Extrae los datos de entrada en un formato adecuado para el modelo
     entrada_modelo = np.array([[datos.Gender, datos.Age, datos.Schooling, datos.Breastfeeding, datos.Varicella, datos.Initial_Symptom, datos.Mono_or_Polysymptomatic, datos.Oligoclonal_Bands, datos.LLSSEP, datos.ULSSEP, datos.VEP, datos.BAEP, datos.Periventricular_MRI, datos.Cortical_MRI, datos.Infratentorial_MRI, datos.Spinal_Cord_MRI]])

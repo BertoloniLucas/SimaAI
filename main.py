@@ -37,6 +37,12 @@ class DatosEntrada(BaseModel):
     Spinal_Cord_MRI: int 
 
 # Define el endpoint de la API
+
+@app.get("/")
+def init_route(): 
+    return "Render API working correctly"
+
+
 @app.post("/predecir/")
 def predecir(datos: DatosEntrada):
     # Verificar si el modelo fue cargado correctamente

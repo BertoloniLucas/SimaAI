@@ -14,7 +14,7 @@ try:
     with open("models/selección_Modelo_Mejor_Predicción/opt_modelo.pkl", "rb") as f:
         modelo = pickle.load(f)
 except FileNotFoundError:
-    print("El archivo del modelo no se encontró. Asegúrate de que 'opt_modelo.pkl' existe.")
+    raise HTTPException(status_code=404, detail="El archivo del modelo no se encontró. Asegúrate de que 'opt_modelo.pkl' existe.")
     modelo = None
 
 # Define el esquema de datos de entrada usando Pydantic

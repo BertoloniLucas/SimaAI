@@ -84,7 +84,7 @@ async def model_output(model_entry):
         resultado = modelo.predict(model_entry)
         async with httpx.AsyncClient() as client: 
             response = await client.post("https://sima-server.vercel.app/analysis/modelOutput", 
-            json={"result": resultado},
+            json={result: resultado},
             headers={"Content-Type": "application/json"}
             )
             response.raise_for_status()

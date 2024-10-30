@@ -52,7 +52,7 @@ def init_route():
 
 
 @app.post("/predecir")
-def predecir(datos: DatosEntrada):
+async def predecir(datos: DatosEntrada):
     # Verificar si el modelo fue cargado correctamente
     if modelo is None:
         raise HTTPException(status_code=500, detail="El modelo no está disponible.")
@@ -69,9 +69,10 @@ def predecir(datos: DatosEntrada):
     
     # Realiza la predicción utilizando el modelo cargado
     try:
-        resultado = modelo.predict(entrada_modelo)
+        resultado = await modelo.predict(entrada_modelo)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error en la predicción: {str(e)}")
     
     # Devuelve el resultado de la predicción como JSON
     return {"resultado": resultado.tolist()}
+

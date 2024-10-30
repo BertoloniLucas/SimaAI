@@ -74,44 +74,9 @@ async def predecir(datos: DatosEntrada):
     # Realiza la predicción utilizando el modelo cargado
     try:
         resultado = modelo.predict(datos)
-        return resultado.tolist()
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error en la predicción: {str(e)}")
     
     # Devuelve el resultado de la predicción como JSON
-    return {"resultado": "Processing"}
+    return {"resultado": resultado.tolist()}
 
-async def model_output(task_id, datos):
-    try:
-        entrada_modelo = np.array([[datos.Gender, datos.Age, datos.Schooling, datos.Breastfeeding, datos.Varicella, datos.Initial_Symptom, datos.Mono_or_Polysymptomatic, datos.Oligoclonal_Bands, datos.LLSSEP, datos.ULSSEP, datos.VEP, datos.BAEP, datos.Periventricular_MRI, datos.Cortical_MRI, datos.Infratentorial_MRI, datos.Spinal_Cord_MRI]])
-
-        resultado = modelo.predict(entrada_modelo)
-
-        tasks[task_id] = {"status": "completed", "result": resultado.tolist()}
-
-        async with httpx.AsyncClient() as client:
-            await client.post(
-                "https://sima-server.vercel.app/analysis/modelOutput",
-                json={"result": resultado.tolist()},
-                headers={"Content-Type": "application/json"}
-            )
-    except Exception as e:
-        tasks[task_id] = {"status": "error", "result": str(e)}
-
-
-@app.post("/predecir2")
-async def predecir2(datos: DatosEntrada): 
-     task_id = str(uuid.uuid4())
-     tasks[task_id] = {"status": "processing", "result": None}
-
-     asyncio.create_task(model_output(task_id, datos))
-
-     return {"task_id": task_id, "status": "processing"}
-
-
-@app.get("/status/{task_id}")
-async def get_status(task_id: str):
-    if task_id not in tasks:
-        raise HTTPException(status_code=404, detail="Task ID no encontrado")
-
-    return tasks[task_id]

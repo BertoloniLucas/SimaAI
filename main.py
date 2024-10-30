@@ -7,6 +7,7 @@ import os
 import asyncio
 import httpx
 
+
 # Inicializa la aplicación de FastAPI
 app = FastAPI()
 

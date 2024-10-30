@@ -4,6 +4,8 @@ from pydantic import BaseModel
 import pickle  # Para cargar el modelo serializado
 import numpy as np
 import os
+import asyncio
+import httpx
 
 # Inicializa la aplicación de FastAPI
 app = FastAPI()
@@ -69,10 +71,24 @@ async def predecir(datos: DatosEntrada):
     
     # Realiza la predicción utilizando el modelo cargado
     try:
-        resultado = await modelo.predict(entrada_modelo)
+        asyncio.create_task(model_output(entrada_modelo))
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error en la predicción: {str(e)}")
     
     # Devuelve el resultado de la predicción como JSON
-    return {"resultado": resultado.tolist()}
+    return {"resultado": "Processing"}
 
+async def model_output(model_entry):
+    try :
+        resultado = modelo.predict(model_entry)
+        async with httpx.AsyncClient() as client: 
+            response = await client.post("https://sima-server.vercel.app/analysis/modelOutput", 
+            json={"result": resultado},
+            headers={"Content-Type": "application/json"}
+            )
+            response.raise_for_status()
+            return
+    except Exception as e: 
+        print(str(e))
+        return {"error": str(e)}
+ 

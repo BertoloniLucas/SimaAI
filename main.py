@@ -73,7 +73,7 @@ async def predecir(datos: DatosEntrada):
     
     # Realiza la predicción utilizando el modelo cargado
     try:
-        resultado = modelo.predict(datos)
+        resultado = modelo.predict(entrada_modelo)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error en la predicción: {str(e)}")
     
